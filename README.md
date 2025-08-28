@@ -53,4 +53,9 @@ ng g environments
 6. Une fois finis tester / rendre jolis / se faire plaisir
 7. retour au point 1
 
+Hésiter pas à vous appuyer sur les git / demo / exo / ancien projet
+⚠️ Attention à toujours adapter votre code au context courant
+⚠️ L'Ia est votre amie mais compter pas trop dessus
 
+![img.png](img.png)
+![img_1.png](img_1.png)
