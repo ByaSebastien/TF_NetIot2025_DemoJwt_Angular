@@ -41,6 +41,11 @@ choisir le type de guard après la commande
 ng g environments
 ```
 
+- Générer un resolver
+```shell
+ng g resolver [path]/nomDuResolver
+```
+
 ## Dans le workflow de création de features
 
 ### Exemple de Workflow (à adapter)

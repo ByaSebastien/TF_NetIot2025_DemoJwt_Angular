@@ -46,7 +46,7 @@ export class Login {
       this._authService.login(this.loginForm.value).subscribe({
         next: (result) => {
           console.log(result);
-          this._router.navigateByUrl('/home');
+          this._router.navigateByUrl('/house');
         },
         error: err => {
           this._messageService.add({severity: 'error', summary: err.error.content});

@@ -37,4 +37,9 @@ export const routes: Routes = [
     loadComponent: () => import("./features/auth/pages/login/login").then(m => m.Login),
 
   },
+  {
+    path: 'house',
+    // Lazy loading du component (importe le component puis renvois l'instance à l'appel)
+    loadComponent: () => import("./features/houses/pages/house-index/house-index").then(m => m.HouseIndex),
+  },
 ];

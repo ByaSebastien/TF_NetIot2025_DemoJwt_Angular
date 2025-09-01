@@ -1,6 +1,8 @@
 @if (currentUser()){
   <p-button (click)="logout()" severity="danger" label="Logout" icon="pi pi-sign-out"></p-button>
   <p-button routerLink="/hello" severity="warn" label="Hello" icon="pi pi-sign-out"></p-button>
+  <p-button routerLink="/house" severity="info" label="HouseService" icon="pi pi-home"></p-button>
+
 } @else {
   <p-buttonGroup>
     <p-button routerLink="/register" label="Register" icon="pi pi-user-plus"></p-button>
