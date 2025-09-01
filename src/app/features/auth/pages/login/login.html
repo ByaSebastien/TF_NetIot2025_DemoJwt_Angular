@@ -1,5 +1,5 @@
 <h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="submit()" (keydown.enter)="submit()">
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
   <p-floatlabel variant="on">
     <input pInputText type="text" id="username" formControlName="username">
     <label [pAutoFocus]="true" for="username">Username</label>

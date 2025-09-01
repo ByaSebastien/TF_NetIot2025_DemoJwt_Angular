@@ -7,6 +7,7 @@ import {AutoFocus} from 'primeng/autofocus';
 import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Button} from 'primeng/button';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -26,6 +27,7 @@ export class Register {
   private readonly _authService: AuthService = inject(AuthService);
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _router: Router = inject(Router);
+  private readonly _messageService: MessageService = inject(MessageService);
 
   registerForm: FormGroup;
 
@@ -46,7 +48,7 @@ export class Register {
           this._router.navigateByUrl('/home');
         },
         error: err => {
-          console.log(err);
+          this._messageService.add({severity: 'error', summary: err.error.content});
         }
       });
     }

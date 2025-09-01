@@ -1,1 +1,7 @@
-<h2>{{result()?.content ?? 'Hello'}}</h2>
+<h2>{{ helloResolved().content }}</h2>
+<h3>{{ mySignal() }}</h3>
+<h3>{{ myComputedSignal() }}</h3>
+<div>
+  <input type="text" [(ngModel)]="inputValue">
+  <button (click)="setSignal()">Set Signal</button>
+</div>

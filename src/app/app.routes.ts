@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {isConnectedGuard} from './features/auth/guards/is-connected-guard';
+import {helloResolver} from './features/home/resolvers/hello-resolver';
 
 export const routes: Routes = [
   {
@@ -18,8 +19,11 @@ export const routes: Routes = [
     // Lazy loading du component (importe le component puis renvois l'instance à l'appel)
     loadComponent: () => import("./features/home/pages/hello/hello").then(m => m.Hello),
     canActivate: [
-      isConnectedGuard
+      isConnectedGuard,
     ],
+    resolve: {
+      helloResolved: helloResolver,
+    },
   },
   {
     path: 'register',

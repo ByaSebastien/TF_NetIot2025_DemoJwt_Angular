@@ -1,5 +1,5 @@
 <h2>Register</h2>
-<form [formGroup]="registerForm" (ngSubmit)="submit()" (keydown.enter)="submit()">
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
   <p-floatlabel variant="on">
     <input pInputText type="text" id="username" formControlName="username">
     <label [pAutoFocus]="true" for="username">Username</label>
