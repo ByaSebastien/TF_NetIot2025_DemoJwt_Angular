@@ -4,13 +4,17 @@
     <input pInputText type="text" id="username" formControlName="username">
     <label [pAutoFocus]="true" for="username">Username</label>
   </p-floatlabel>
+  <app-form-error [control]="registerForm.controls.username"/>
   <p-floatlabel variant="on">
     <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
     <label for="password">Password</label>
   </p-floatlabel>
+  <app-form-error [control]="registerForm.controls.password" />
   <p-floatlabel variant="on">
     <p-password id="confirmPassword" formControlName="confirmPassword" [feedback]="false" [toggleMask]="true"></p-password>
     <label for="confirmPassword">Confirm password</label>
   </p-floatlabel>
+  <app-form-error [control]="registerForm.controls.confirmPassword" />
   <p-button type="submit" label="Register"></p-button>
+
 </form>

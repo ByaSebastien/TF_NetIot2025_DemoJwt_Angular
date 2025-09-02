@@ -39,6 +39,9 @@ export const routes: Routes = [
   },
   {
     path: 'house',
+    canActivate: [
+      isConnectedGuard,
+    ],
     // Lazy loading du component (importe le component puis renvois l'instance à l'appel)
     loadComponent: () => import("./features/houses/pages/house-index/house-index").then(m => m.HouseIndex),
   },

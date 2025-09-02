@@ -1,0 +1,8 @@
+@if(control().invalid && (control().touched || control().dirty) && control().enabled) {
+    @if(control().getError('required')) {
+      <small class="text-red-500">Ce champ est requis</small>
+    }
+    @if(control().getError('minlength')) {
+      <small class="text-red-500">Ce champ est trop court (min: {{ control().getError('minlength').requiredLength }})</small>
+    }
+}

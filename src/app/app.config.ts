@@ -8,6 +8,7 @@ import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeuix/themes/aura'
 import {jwtInterceptor} from './features/auth/interceptors/jwt-interceptor';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import { MessageService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
         preset: Aura
       }
     }),
+    MessageService,
   ]
 };

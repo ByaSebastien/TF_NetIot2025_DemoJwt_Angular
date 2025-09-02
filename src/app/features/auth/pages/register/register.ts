@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -8,6 +8,9 @@ import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {MessageService} from 'primeng/api';
+import { RegisterForm } from '../../models/user-dto';
+import { FormError } from "../../../../shared/components/form-error/form-error";
+
 
 @Component({
   selector: 'app-register',
@@ -17,8 +20,9 @@ import {MessageService} from 'primeng/api';
     AutoFocus,
     InputText,
     Password,
-    Button
-  ],
+    Button,
+    FormError,
+],
   templateUrl: './register.html',
   styleUrl: './register.scss'
 })
@@ -29,21 +33,22 @@ export class Register {
   private readonly _router: Router = inject(Router);
   private readonly _messageService: MessageService = inject(MessageService);
 
-  registerForm: FormGroup;
+  registerForm = this._fb.group({
+    username: ['', [Validators.required, Validators.minLength(2)]],
+    password: ['', [Validators.required]],
+    confirmPassword: ['', [Validators.required]],
+  });
 
   constructor() {
-    this.registerForm = this._fb.group({
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      confirmPassword: [null, [Validators.required]],
-    });
+    console.log('construit')
   }
+  
 
   submit(): void {
     this.registerForm.markAllAsTouched();
 
     if(this.registerForm.valid) {
-      this._authService.register(this.registerForm.value).subscribe({
+      this._authService.register(<RegisterForm>this.registerForm.value).subscribe({
         next: () => {
           this._router.navigateByUrl('/home');
         },

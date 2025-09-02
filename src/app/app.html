@@ -9,5 +9,12 @@
   <router-outlet></router-outlet>
 </main>
 <footer>
+  <div class="p-3">
+    <p-button icon="pi pi-info" (onClick)="helpOpen = true"></p-button>
+  </div>
   <app-footer></app-footer>
 </footer>
+
+<app-help [visible]="helpOpen" (onClose)="helpOpen = false">
+  <p>Ceci est une aide !!</p>
+</app-help>
