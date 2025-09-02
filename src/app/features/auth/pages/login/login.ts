@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Optional} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -8,6 +8,8 @@ import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {AutoFocus} from 'primeng/autofocus';
 import {MessageService} from 'primeng/api';
+import { FormError } from "../../../../shared/components/form-error/form-error";
+import { LoginForm } from '../../models/user-dto';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +20,9 @@ import {MessageService} from 'primeng/api';
     InputText,
     Password,
     ReactiveFormsModule,
-    AutoFocus
-  ],
+    AutoFocus,
+    FormError
+],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -30,20 +33,17 @@ export class Login {
   private readonly _router: Router = inject(Router);
   private readonly _messageService: MessageService = inject(MessageService);
 
-  loginForm: FormGroup;
+  loginForm = this._fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
 
-  constructor() {
-    this.loginForm = this._fb.group({
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-    });
-  }
 
   submit(): void {
     this.loginForm.markAllAsTouched();
 
     if(this.loginForm.valid) {
-      this._authService.login(this.loginForm.value).subscribe({
+      this._authService.login(this.loginForm.value as LoginForm).subscribe({
         next: (result) => {
           console.log(result);
           this._router.navigateByUrl('/house');

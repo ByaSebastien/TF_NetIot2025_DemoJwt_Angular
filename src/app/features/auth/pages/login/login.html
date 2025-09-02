@@ -4,9 +4,11 @@
     <input pInputText type="text" id="username" formControlName="username">
     <label [pAutoFocus]="true" for="username">Username</label>
   </p-floatlabel>
+  <app-form-error [control]="loginForm.controls.username"></app-form-error>
   <p-floatlabel variant="on">
     <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
     <label for="password">Password</label>
   </p-floatlabel>
+  <app-form-error [control]="loginForm.controls.password"></app-form-error>
   <p-button type="submit" label="Login"></p-button>
 </form>

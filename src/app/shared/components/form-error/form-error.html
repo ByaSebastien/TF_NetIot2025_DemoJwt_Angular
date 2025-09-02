@@ -5,4 +5,7 @@
     @if(control().getError('minlength')) {
       <small class="text-red-500">Ce champ est trop court (min: {{ control().getError('minlength').requiredLength }})</small>
     }
+    @if(control().getError('compare')) {
+      <small class="text-red-500">Les champs ({{ control().getError('compare').field1 }} et {{ control().getError('compare').field2 }}) ne correspondent pas</small>
+    }
 }

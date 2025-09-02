@@ -1,6 +1,6 @@
 import {Component, effect, inject} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {FloatLabel} from 'primeng/floatlabel';
 import {AutoFocus} from 'primeng/autofocus';
@@ -10,6 +10,7 @@ import {Button} from 'primeng/button';
 import {MessageService} from 'primeng/api';
 import { RegisterForm } from '../../models/user-dto';
 import { FormError } from "../../../../shared/components/form-error/form-error";
+import { CustomValidators } from '../../../../shared/validators/custom-validators';
 
 
 @Component({
@@ -37,12 +38,12 @@ export class Register {
     username: ['', [Validators.required, Validators.minLength(2)]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
-  });
+    // nouvelle regle globale qui compare 2 champs
+  }, { validators: [CustomValidators.comparePasswords] });
 
   constructor() {
     console.log('construit')
   }
-  
 
   submit(): void {
     this.registerForm.markAllAsTouched();
