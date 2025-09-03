@@ -45,6 +45,8 @@ export class Register {
     console.log('construit')
   }
 
+  html = '<p>test</p>';
+
   submit(): void {
     this.registerForm.markAllAsTouched();
 

@@ -14,4 +14,8 @@ export class HouseService {
   getHouses() {
     return this._http.get<HouseDto[]>(this._url);
   }
+
+  addHouse(houseForm: any) {
+    return this._http.post<void>(this._url, houseForm);
+  }
 }

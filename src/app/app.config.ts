@@ -9,6 +9,7 @@ import Aura from '@primeuix/themes/aura'
 import {jwtInterceptor} from './features/auth/interceptors/jwt-interceptor';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,6 +27,10 @@ export const appConfig: ApplicationConfig = {
         preset: Aura
       }
     }),
+    // ajout du service de prime qui permet d'afficher des messages
     MessageService,
+
+    // ajout du service de prime qui permet de gérer les boites de dialog 
+    DialogService,
   ]
 };

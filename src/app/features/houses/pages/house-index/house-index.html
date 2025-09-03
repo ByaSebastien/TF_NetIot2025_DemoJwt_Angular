@@ -1,3 +1,12 @@
+<div class="m-3">
+  <p-button severity="contrast" 
+            size="large" 
+            label="Nouvelle maison" 
+            icon="pi pi-plus" 
+            iconPos="left"
+            (onClick)="openAddHouse()"></p-button>
+</div>
+
 <ul>
 @for (house of houses(); track house.id) {
   <li>{{house.name}}</li>
