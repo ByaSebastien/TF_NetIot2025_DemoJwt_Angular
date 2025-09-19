@@ -19,7 +19,7 @@ export const routes: Routes = [
     // Lazy loading du component (importe le component puis renvois l'instance à l'appel)
     loadComponent: () => import("./features/home/pages/hello/hello").then(m => m.Hello),
     canActivate: [
-      isConnectedGuard,
+      // isConnectedGuard,
     ],
     resolve: {
       helloResolved: helloResolver,
