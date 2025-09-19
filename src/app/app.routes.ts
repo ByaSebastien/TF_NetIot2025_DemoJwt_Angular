@@ -46,3 +46,4 @@ export const routes: Routes = [
     loadComponent: () => import("./features/houses/pages/house-index/house-index").then(m => m.HouseIndex),
   },
 ];
+
