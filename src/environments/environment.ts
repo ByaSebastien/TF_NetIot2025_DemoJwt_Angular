@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: "https://testbendasp-deajexfxbbbfa0dj.northeurope-01.azurewebsites.net/api"
+  API_URL: "https://xfacebend-augtbahca4cahpa4.northeurope-01.azurewebsites.net/api"
 };
